@@ -1,8 +1,42 @@
-(def x "Hello, World!")
-(print x)
+(print "Initiate: simulated annealing.")
 
 
+; Function to compute the "energy" or "cost" of a current state
+(defn calcEnergy [phi, state]
+   (phi state))
 
+; Given current state, go to the next one according to some transform function
+(defn generateNextState [state, transform]
+   (transform state))
+
+; Exponent function
+(defn exp [x n]
+   (reduce * (repeat n x))) 
+
+; Compute the probability of moving from one state to the next, given the Temperature of the system
+(defn probMove [curState, nextState, tempConstant]
+   ; This function is a Boultzmann distribution
+   (exp [2.718 (/
+      (- nextState curState)
+      (* tempConstant))]))
+
+
+; Initial configuration
+
+; Initial temperature
+
+; For tMax to tMin
+
+   ; Compute current energy level for current state
+   ; Compute next state
+   ; Compute energy for next state
+   ; Calculate deltaE
+   ; if (deltaE > 0) ; If next state is more optimal
+      ; return nextState
+   ; elsif boulztMan(params) > rand(0,1) ; Move to worse state with propability dependent on temperature
+      ; return currentState
+
+   
 ;-----------------------------------------------------------------------
 
 ;  References
